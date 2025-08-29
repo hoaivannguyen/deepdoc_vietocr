@@ -27,6 +27,8 @@ from .operators import *  # noqa: F403
 from .operators import preprocess
 from . import operators
 from .ocr import load_model
+# ONNX
+# from from module.ocr_onnx import OCR
 
 class Recognizer:
     def __init__(self, label_list, task_name, model_dir=None):

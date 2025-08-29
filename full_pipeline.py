@@ -25,7 +25,7 @@ log_file = os.path.join(log_dir, "full_pipeline.log")
 
 # Count previous runs by counting lines that start with "=== Run"
 run_count = 1
-if os.path.exists(log_file):
+if os.path.exists(log_file):    
     with open(log_file, "r", encoding="utf-8") as f:
         run_count += sum(1 for line in f if line.startswith("=== Run"))
 
