@@ -9,17 +9,17 @@
 
 ## 1. Giới thiệu
 
-Với một loạt tài liệu từ nhiều nguồn khác nhau với nhiều định dạng khác nhau và cùng với các yêu cầu truy xuất đa dạng,  một công cụ trích xuất chính xác là rất cần thiết với bất kỳ doanh nghiệp nào. Hôm nay mình sẽ giới thiệu với các bạn công cụ Deepdoc, một công cụ OCR rất nhanh và tiết kiệm chi phí khi chỉ cần chạy trên CPU. Không những vậy còn có các tính năng kèm theo là Layout Recognition (nhận diện bố cục) và Table Structure Recognition (nhận diện cấu trúc bảng) giúp giữ định dạng văn bản sau OCR. 
+Với một loạt tài liệu từ nhiều nguồn khác nhau với nhiều định dạng khác nhau và cùng với các yêu cầu truy xuất đa dạng,  một công cụ trích xuất chính xác là rất cần thiết với bất kỳ doanh nghiệp nào. Hôm nay mình sẽ giới thiệu với các bạn công cụ DeepDoc, một công cụ OCR rất nhanh và tiết kiệm chi phí khi chỉ cần chạy trên CPU. Không những vậy còn có các tính năng kèm theo là Layout Recognition (nhận diện bố cục) và Table Structure Recognition (nhận diện cấu trúc bảng) giúp giữ định dạng văn bản sau OCR. 
 
-Tuy nhiên Deepdoc chưa được chuẩn hóa cho tiếng Việt nên mình đã thay VietOCR và bản ONNX vào phần Text Recognizer để có thể nhận dạng văn bảng tiếng Việt tốt hơn. Bạn cũng có thể tham khảo deepdoc phiên bản gốc tại [đây](https://github.com/infiniflow/ragflow/blob/main/deepdoc/README.md). Thêm vào đó, Deepdoc bản chất là 1 phần xử lý dữ liệu cho luồng RAG thuộc dự án RAGFlow nên việc mình tách ra thành 1 git riêng cũng để ứng dụng có thể tùy chỉnh một cách thuận tiện hơn
+Tuy nhiên DeepDoc chưa được chuẩn hóa cho tiếng Việt nên mình đã thay VietOCR và bản ONNX vào phần Text Recognizer để có thể nhận dạng văn bảng tiếng Việt tốt hơn. Bạn cũng có thể tham khảo DeepDoc phiên bản gốc tại [đây](https://github.com/infiniflow/ragflow/blob/main/deepdoc/README.md). Thêm vào đó, DeepDoc bản chất là 1 phần xử lý dữ liệu cho luồng RAG thuộc dự án RAGFlow nên việc mình tách ra thành 1 git riêng cũng để ứng dụng có thể tùy chỉnh một cách thuận tiện hơn
 
 <a name="2"></a>
 
 ## 2. Kiến trúc kỹ thuật
 ### 2.1 OCR
-Phần này Deepdoc sử dụng PaddleOCR - Công cụ mã nguồn mở rất thông dụng được phát triển bởi Baidu - sau khi chuyển sang ONNX. Cơ bản thì ONNX (Open Neural Network Exchange) dạng mở cho mô hình AI, cho phép xuất – nhập mô hình giữa nhiều framework (PyTorch, TensorFlow, v.v.), giúp mô hình tương thích đa nền tảng, tối ưu tốc độ trên CPU/GPU và giảm chi phí hạ tầng khi triển khai (chúng ta sẽ không đi quá sâu về chủ đề này)
+Phần này DeepDoc sử dụng PaddleOCR - Công cụ mã nguồn mở rất thông dụng được phát triển bởi Baidu - sau khi chuyển sang ONNX. Cơ bản thì ONNX (Open Neural Network Exchange) dạng mở cho mô hình AI, cho phép xuất – nhập mô hình giữa nhiều framework (PyTorch, TensorFlow, v.v.), giúp mô hình tương thích đa nền tảng, tối ưu tốc độ trên CPU/GPU và giảm chi phí hạ tầng khi triển khai (chúng ta sẽ không đi quá sâu về chủ đề này)
 
-Bên Deepdoc họ không ghi rõ là sử dụng version bao nhiêu vì sau khi chuyển sang ONNX cũng khó để xác định lại. Để hiểu qua về cách hoạt động, mình sẽ tham khảo kiến trúc OCR PP-OCRv5 của bản mới nhất là PaddleOCR 3.0, bao gồm 4 phần chính:
+Bên DeepDoc họ không ghi rõ là sử dụng version bao nhiêu vì sau khi chuyển sang ONNX cũng khó để xác định lại. Để hiểu qua về cách hoạt động, mình sẽ tham khảo kiến trúc OCR PP-OCRv5 của bản mới nhất là PaddleOCR 3.0, bao gồm 4 phần chính:
 
 - Image Preprocessing Module (Tiền xử lý ảnh): Cải thiện chất lượng ảnh, xử lý xoay/nghiêng bằng mô hình phân loại hướng (PP-LCNet) và unwarping (UVDoc).
 
@@ -36,7 +36,7 @@ Bên Deepdoc họ không ghi rõ là sử dụng version bao nhiêu vì sau khi 
 Chi tiết về PP-OCRv5, bạn có thể tham khảo tài liệu chính thức tại [đây](https://arxiv.org/html/2507.05595v1).
 
 ### 2.2 Layout Recognition và Table Structure Recognition
-Phần này thì Deepdoc sử dụng YOLOv10 (You Only Look Once) - cũng là 1 phương pháp object detection (phát hiện đối tượng) phổ biến - phiên bản ONNX.
+Phần này thì DeepDoc sử dụng YOLOv10 (You Only Look Once) - cũng là 1 phương pháp object detection (phát hiện đối tượng) phổ biến - phiên bản ONNX.
 
 Kiến trúc cơ bản gồm 3 phần chính:
 
@@ -51,7 +51,7 @@ Kiến trúc cơ bản gồm 3 phần chính:
 </div>
 
 
-Trong Deepdoc, YOLOv10 được huấn luyện để nhận dạng các loại nhãn cho phần Layout Recognition và Table Structure Recognition cơ bản bao phủ hầu hết các trường hợp.
+Trong DeepDoc, YOLOv10 được huấn luyện để nhận dạng các loại nhãn cho phần Layout Recognition và Table Structure Recognition cơ bản bao phủ hầu hết các trường hợp.
 
 Đối với Layout Recognition, có 10 loại:
       - Text (Văn bản)
@@ -144,4 +144,11 @@ python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshol
 Hy vọng các bạn thấy công cụ hữu ích và áp dụng được vào thực tế. Nếu có góp ý hãy để lại dưới phần bình luận. Cảm ơn các bạn đã đọc bài viết! 
 
 
-    
+## Tài liệu tham khảo
+DeepDoc repo: https://github.com/infiniflow/ragflow/blob/main/deepdoc/README.md
+
+PP-OCRv5: https://arxiv.org/html/2507.05595v1
+
+YOLOv10: https://arxiv.org/pdf/2405.14458
+
+
