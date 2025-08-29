@@ -54,23 +54,23 @@ Kiến trúc cơ bản gồm 3 phần chính:
 Trong DeepDoc, YOLOv10 được huấn luyện để nhận dạng các loại nhãn cho phần Layout Recognition và Table Structure Recognition cơ bản bao phủ hầu hết các trường hợp.
 
 Đối với Layout Recognition, có 10 loại:
-      - Text (Văn bản)
-      - Title (Tiêu đề)
-      - Image (Hình ảnh)
-      - Image Caption (Chú thích hình ảnh)
-      - Table (Bảng)
-      - Table Caption (Chú thích bảng)
-      - Header (Đầu đề)
-      - Footer (Chân trang)
-      - Reference (Tài liệu tham khảo)
-      - Equation (Phương trình)
+- Text (Văn bản)
+- Title (Tiêu đề)
+- Image (Hình ảnh)
+- Image Caption (Chú thích hình ảnh)
+- Table (Bảng)
+- Table Caption (Chú thích bảng)
+- Header (Đầu đề)
+- Footer (Chân trang)
+- Reference (Tài liệu tham khảo)
+- Equation (Phương trình)
 
 Đối với Table Structure Recognition, có 5 loại:
-      - Column (Cột)
-      - Row (Hàng)
-      - Column header (Đầu đề cột)
-      - Projected row header (Đầu đề hàng được chiếu)
-      - Spanning cell (Ô trải dài)
+- Column (Cột)
+- Row (Hàng)
+- Column header (Đầu đề cột)
+- Projected row header (Đầu đề hàng được chiếu)
+- Spanning cell (Ô trải dài)
 
 
 Để có thể hiểu rõ hơn về YOLOv10, bạn có thể tham khảo tài liệu chính thức tại [đây](https://arxiv.org/pdf/2405.14458).
