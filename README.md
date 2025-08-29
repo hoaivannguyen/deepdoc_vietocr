@@ -108,37 +108,37 @@ options:
   --mode {layout,tsr}   Chế độ tác vụ: nhận dạng bố cục (layout) hoặc nhận dạng cấu trúc bảng (tsr)
 ```
 ### 3.1. OCR
-  Để chạy thử OCR, bạn có thể sử dụng lệnh sau:
-    ```bash
-        python deepdoc/vision/t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
-     ```
-    Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các bounding box được nhận diện và 1 file txt chứa văn bản được OCR.
-    <div align="center" style="margin-top:20px;margin-bottom:20px;">
-    <img src="img\Screenshot 2025-08-28 171633.png" width="900"/>
-    </div>
+Để chạy thử OCR, bạn có thể sử dụng lệnh sau:
+ ```bash
+python deepdoc/vision/t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
+```
+Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các bounding box được nhận diện và 1 file txt chứa văn bản được OCR.
+<div align="center" style="margin-top:20px;margin-bottom:20px;">
+<img src="img\Screenshot 2025-08-28 171633.png" width="900"/>
+</div>
 
-    Mình đang để mặc định là VietOCR Seq2seq vì hiện đang chạy tương đối nhanh và chính xác. Bạn có thể đổi sang VietOCR Transformer trong module/ocr.py nhưng mình không đề xuất vì thời gian xử lý lâu hơn rất nhiều mà độ chuẩn xác không tănng lên là mấy. Nếu bạn muốn nhanh nhất có thể chuyển sang sử dụng bản ONNX bằng việc import ocr_onnx thay vì ocr nhưng độ chính xác sẽ giảm đi 1 chút.
+Mình đang để mặc định là VietOCR Seq2seq vì hiện đang chạy tương đối nhanh và chính xác. Bạn có thể đổi sang VietOCR Transformer trong module/ocr.py nhưng mình không đề xuất vì thời gian xử lý lâu hơn rất nhiều mà độ chuẩn xác không tănng lên là mấy. Nếu bạn muốn nhanh nhất có thể chuyển sang sử dụng bản ONNX bằng việc import ocr_onnx thay vì ocr nhưng độ chính xác sẽ giảm đi 1 chút.
 
 ## 2. Layout Recognizer (Nhận diện bố cục)
-     Hãy thử lệnh sau để xem kết quả Layout Recognizer.
-     ```bash
-        python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
-     ```
-    Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các gán nhãn như dưới đây:
-    <div align="center" style="margin-top:20px;margin-bottom:20px;">
-    <img src="img\49806-Article Text-153529-1-10-20200804_page-0002.jpg" width="1000"/>
-    </div>
+Hãy thử lệnh sau để xem kết quả Layout Recognizer:
+```bash
+python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
+```
+Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các gán nhãn như dưới đây:
+<div align="center" style="margin-top:20px;margin-bottom:20px;">
+<img src="img\49806-Article Text-153529-1-10-20200804_page-0002.jpg" width="1000"/>
+</div>
 
 ## 3. Table Structure Recognizer
+Hãy thử lệnh sau để xem kết quả TSR.
+```bash
+python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
+```
 
-    Hãy thử lệnh sau để xem kết quả TSR.
-     ```bash
-        python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
-     ```
-    Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ là 1 ảnh với gán nhãn và 1 file markdown với nội dung bảng
-    <div align="center" style="margin-top:20px;margin-bottom:20px;">
-    <img src="img\Screenshot 2025-08-28 182132.png" width="1000"/>
-    </div>
+Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ là 1 ảnh với gán nhãn và 1 file markdown với nội dung bảng
+<div align="center" style="margin-top:20px;margin-bottom:20px;">
+<img src="img\Screenshot 2025-08-28 182132.png" width="1000"/>
+</div>
 
 ## Kết
 Hy vọng các bạn thấy công cụ hữu ích và áp dụng được vào thực tế. Nếu có góp ý hãy để lại dưới phần bình luận. Cảm ơn các bạn đã đọc bài viết! 
