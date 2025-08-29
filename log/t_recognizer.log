@@ -1,0 +1,118 @@
+
+=== Run 1 | 2025-08-15 13:46:53 ===
+Image 0:
+  Detected label: title
+  Detected label: title
+  Detected label: title
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: figure
+  Detected label: figure
+  Detected label: table
+
+=== Run 2 | 2025-08-15 13:48:02 ===
+
+=== Run 3 | 2025-08-28 17:30:35 ===
+Image 0:
+  Detected label: title
+  Detected label: title
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: figure
+  Detected label: equation
+  Detected label: equation
+  Detected label: figure caption
+
+=== Run 4 | 2025-08-28 17:35:17 ===
+Image 0:
+  Detected label: title
+  Detected label: title
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: text
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: reference
+  Detected label: equation
+  Detected label: equation
+  Detected label: equation
+  Detected label: equation
+  Detected label: figure caption
+
+=== Run 5 | 2025-08-28 17:49:49 ===
+
+=== Run 6 | 2025-08-28 17:52:58 ===
+
+=== Run 7 | 2025-08-28 17:57:02 ===
+
+=== Run 8 | 2025-08-28 17:59:55 ===
+
+=== Run 9 | 2025-08-28 18:11:24 ===
+Traceback (most recent call last):
+  File "D:\Download_D\code_clone\deepdoc\t_recognizer.py", line 190, in <module>
+    main(args)
+  File "D:\Download_D\code_clone\deepdoc\t_recognizer.py", line 51, in main
+    html = get_table_html(images[i], lyt, ocr)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Download_D\code_clone\deepdoc\t_recognizer.py", line 90, in get_table_html
+    ii = LayoutRecognizer.find_overlapped_with_threshold(b, rows, thr=0.3)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'LayoutRecognizer4YOLOv10' has no attribute 'find_overlapped_with_threshold'. Did you mean: 'find_overlapped_with_threashold'?
+
+=== Run 10 | 2025-08-28 18:16:46 ===

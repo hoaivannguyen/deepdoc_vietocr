@@ -1,0 +1,18 @@
+
+=== Run 1 | 2025-08-15 10:11:29 ===
+Loaded 1 images
+Output paths: ['D:\\Download_D\\bang\\hoc ba THPT-2.pdf_0.jpg']
+Processing image 0: D:\Download_D\bang\hoc ba THPT-2.pdf_0.jpg
+Detected 10 layout regions
+Extracting table markdown for region: {'type': 'table', 'bbox': [227.82098388671875, 1727.0980224609375, 1601.3656005859375, 2376.43115234375], 'score': 0.2064022421836853}
+Writing concatenated markdown to: D:\Download_D\bang\hoc ba THPT-2.pdf_0.jpg_full.md
+Processing image 0 done in 8.04 seconds
+
+=== Run 2 | 2025-08-15 10:15:12 ===
+Loaded 1 images
+Output paths: ['D:\\Download_D\\bang\\hoc ba THPT-2.pdf_0.jpg']
+Processing image 0: D:\Download_D\bang\hoc ba THPT-2.pdf_0.jpg
+Detected 10 layout regions
+Extracting table markdown for region: {'type': 'table', 'bbox': [227.82098388671875, 1727.0980224609375, 1601.3656005859375, 2376.43115234375], 'score': 0.2064022421836853}
+Writing concatenated markdown to: D:\Download_D\bang\hoc ba THPT-2.pdf_0.jpg_full.md
+Processing image 0 done in 8.80 seconds
