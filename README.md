@@ -35,6 +35,8 @@ Bên DeepDoc họ không ghi rõ là sử dụng version bao nhiêu vì sau khi 
 
 Chi tiết về PP-OCRv5, bạn có thể tham khảo tài liệu chính thức tại [đây](https://arxiv.org/html/2507.05595v1).
 
+Như đã nói bên trên, phần Recognition của Paddle đã được thay bằng VietOCR và bản ONNX để việc nhận dạng chữ tiếng Việt chính xác hơn. Về VietOCR thì đó là 1 công cụ quá phổ biến cho OCR ở Việt Nam rồi, nên mình sẽ không đi sâu, các bạn có thể tìm hiểu thêm ở [đây](https://github.com/pbcquoc/vietocr). Còn phần chuyển sang định dạng ONNX cho VietOCR thì mình tham khảo từ bài viết [này.](https://viblo.asia/p/chuyen-doi-mo-hinh-hoc-sau-ve-onnx-bWrZnz4vZxw)
+
 ### 2.2 Layout Recognition và Table Structure Recognition
 Phần này thì DeepDoc sử dụng YOLOv10 (You Only Look Once) - cũng là 1 phương pháp object detection (phát hiện đối tượng) phổ biến - phiên bản ONNX.
 
@@ -149,6 +151,8 @@ DeepDoc repo: https://github.com/infiniflow/ragflow/blob/main/deepdoc/README.md
 
 PP-OCRv5: https://arxiv.org/html/2507.05595v1
 
+VietOCR: https://github.com/pbcquoc/vietocr
+
+VietOCR ONNX: https://viblo.asia/p/chuyen-doi-mo-hinh-hoc-sau-ve-onnx-bWrZnz4vZxw
+
 YOLOv10: https://arxiv.org/pdf/2405.14458
-
-
