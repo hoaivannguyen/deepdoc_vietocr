@@ -1,0 +1,13 @@
+numpy
+opencv-python
+onnxruntime
+torch
+matplotlib
+Pillow
+pdfplumber
+huggingface_hub
+shapely
+pyclipper
+ruamel.yaml
+cachetools
+six

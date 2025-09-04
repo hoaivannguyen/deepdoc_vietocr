@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="./README.md">Tiếng Việt</a> |
+  <a href="./README_en.md">English</a> |
+</p>
 
 # *Deep*Doc + VietOCR - Công cụ OCR cho tiếng Việt nhanh và tiết kiệm chi phí
 
@@ -9,7 +13,7 @@
 
 ## 1. Giới thiệu
 
-Với một loạt tài liệu từ nhiều nguồn khác nhau với nhiều định dạng khác nhau và cùng với các yêu cầu truy xuất đa dạng,  một công cụ trích xuất chính xác là rất cần thiết với bất kỳ doanh nghiệp nào. Hôm nay mình sẽ giới thiệu với các bạn công cụ DeepDoc, một công cụ OCR rất nhanh và tiết kiệm chi phí khi chỉ cần chạy trên CPU. Không những vậy còn có các tính năng kèm theo là Layout Recognition (nhận diện bố cục) và Table Structure Recognition (nhận diện cấu trúc bảng) giúp giữ định dạng văn bản sau OCR. 
+Với một loạt tài liệu từ nhiều nguồn khác nhau với nhiều định dạng khác nhau và cùng với các yêu cầu truy xuất đa dạng,  một công cụ trích xuất chính xác là rất cần thiết với bất kỳ doanh nghiệp nào. Hôm nay mình sẽ giới thiệu với các bạn công cụ DeepDoc, một công cụ OCR rất nhanh và tiết kiệm chi phí khi chỉ cần chạy trên CPU. Không những vậy còn có các tính năng kèm theo là Layout Recognizer (nhận diện bố cục) và Table Structure Recognizer (nhận diện cấu trúc bảng) giúp giữ định dạng văn bản sau OCR. 
 
 Tuy nhiên DeepDoc chưa được chuẩn hóa cho tiếng Việt nên mình đã thay VietOCR và bản ONNX vào phần Text Recognizer để có thể nhận dạng văn bảng tiếng Việt tốt hơn. Bạn cũng có thể tham khảo DeepDoc phiên bản gốc tại [đây](https://github.com/infiniflow/ragflow/blob/main/deepdoc/README.md). Thêm vào đó, DeepDoc bản chất là 1 phần xử lý dữ liệu cho luồng RAG thuộc dự án RAGFlow nên việc mình tách ra thành 1 git riêng cũng để ứng dụng có thể tùy chỉnh một cách thuận tiện hơn
 
@@ -37,7 +41,7 @@ Chi tiết về PP-OCRv5, bạn có thể tham khảo tài liệu chính thức 
 
 Như đã nói bên trên, phần Recognition của Paddle đã được thay bằng VietOCR và bản ONNX để việc nhận dạng chữ tiếng Việt chính xác hơn. Về VietOCR thì đó là 1 công cụ quá phổ biến cho OCR ở Việt Nam rồi, nên mình sẽ không đi sâu, các bạn có thể tìm hiểu thêm ở [đây](https://github.com/pbcquoc/vietocr). Còn phần chuyển sang định dạng ONNX cho VietOCR thì mình tham khảo từ bài viết [này.](https://viblo.asia/p/chuyen-doi-mo-hinh-hoc-sau-ve-onnx-bWrZnz4vZxw)
 
-### 2.2 Layout Recognition và Table Structure Recognition
+### 2.2 Layout Recognizer và Table Structure Recognizer
 Phần này thì DeepDoc sử dụng YOLOv10 (You Only Look Once) - cũng là 1 phương pháp object detection (phát hiện đối tượng) phổ biến - phiên bản ONNX.
 
 Kiến trúc cơ bản gồm 3 phần chính:
@@ -53,9 +57,9 @@ Kiến trúc cơ bản gồm 3 phần chính:
 </div>
 
 
-Trong DeepDoc, YOLOv10 được huấn luyện để nhận dạng các loại nhãn cho phần Layout Recognition và Table Structure Recognition cơ bản bao phủ hầu hết các trường hợp.
+Trong DeepDoc, YOLOv10 được huấn luyện để nhận dạng các loại nhãn cho phần Layout Recognizer và Table Structure Recognizer cơ bản bao phủ hầu hết các trường hợp.
 
-Đối với Layout Recognition, có 10 loại:
+Đối với Layout Recognizer, có 10 loại:
 - Text (Văn bản)
 - Title (Tiêu đề)
 - Image (Hình ảnh)
@@ -67,7 +71,7 @@ Trong DeepDoc, YOLOv10 được huấn luyện để nhận dạng các loại n
 - Reference (Tài liệu tham khảo)
 - Equation (Phương trình)
 
-Đối với Table Structure Recognition, có 5 loại:
+Đối với Table Structure Recognizer, có 5 loại:
 - Column (Cột)
 - Row (Hàng)
 - Column header (Đầu đề cột)
@@ -121,7 +125,7 @@ python deepdoc/vision/t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path
 
 Mình đang để mặc định là VietOCR Seq2seq vì hiện đang chạy tương đối nhanh và chính xác. Bạn có thể đổi sang VietOCR Transformer trong module/ocr.py nhưng mình không đề xuất vì thời gian xử lý lâu hơn rất nhiều mà độ chuẩn xác không tănng lên là mấy. Nếu bạn muốn nhanh nhất có thể chuyển sang sử dụng bản ONNX bằng việc import ocr_onnx thay vì ocr nhưng độ chính xác sẽ giảm đi 1 chút.
 
-## 2. Layout Recognizer (Nhận diện bố cục)
+### 3.2. Layout Recognizer (Nhận diện bố cục)
 Hãy thử lệnh sau để xem kết quả Layout Recognizer:
 ```bash
 python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
@@ -131,7 +135,7 @@ python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshol
 <img src="img\49806-Article Text-153529-1-10-20200804_page-0002.jpg" width="1000"/>
 </div>
 
-## 3. Table Structure Recognizer
+## 3.3 Table Structure Recognizer
 Hãy thử lệnh sau để xem kết quả TSR.
 ```bash
 python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
