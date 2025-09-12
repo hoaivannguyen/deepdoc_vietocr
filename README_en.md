@@ -112,7 +112,7 @@ options:
 ### 3.1. OCR
 To test OCR, you can use the following command:
  ```bash
-python deepdoc/vision/t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
+python t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
 ```
 The input can be a directory containing images or PDFs, or a single image or PDF file. The output will include 1 image with the detected bounding boxes and 1 text file containing the OCR text.
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
@@ -124,7 +124,7 @@ I'm currently using VietOCR Seq2seq as the default since it runs relatively fast
 ### 3.2. Layout Recognizer
 Try the following command to see the result of the Layout Recognizer:
 ```bash
-python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
+python t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
 ```
 The input can be a directory containing images or PDFs, or a single image or PDF file. The output will include 1 image with the detected labels as shown below:
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
@@ -134,7 +134,7 @@ The input can be a directory containing images or PDFs, or a single image or PDF
 ### 3.3. Table Structure Recognizer
 Try the following command to see the TSR result:
 ```bash
-python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
+python t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
 ```
 
 The input can be a directory containing images or PDFs, or a single image or PDF file. The output will include 1 image with the detected labels and 1 markdown file with the table content.

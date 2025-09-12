@@ -116,7 +116,7 @@ options:
 ### 3.1. OCR
 Để chạy thử OCR, bạn có thể sử dụng lệnh sau:
  ```bash
-python deepdoc/vision/t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
+python t_ocr.py --inputs=path_to_images_or_pdfs --output_dir=path_to_store_result
 ```
 Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các bounding box được nhận diện và 1 file txt chứa văn bản được OCR.
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
@@ -128,7 +128,7 @@ Mình đang để mặc định là VietOCR Seq2seq vì hiện đang chạy tư�
 ### 3.2. Layout Recognizer (Nhận diện bố cục)
 Hãy thử lệnh sau để xem kết quả Layout Recognizer:
 ```bash
-python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
+python t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=layout --output_dir=path_to_store_result
 ```
 Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ gồm 1 ảnh với các gán nhãn như dưới đây:
 <div align="center" style="margin-top:20px;margin-bottom:20px;">
@@ -138,7 +138,7 @@ python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshol
 ## 3.3 Table Structure Recognizer
 Hãy thử lệnh sau để xem kết quả TSR.
 ```bash
-python deepdoc/vision/t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
+python t_recognizer.py --inputs=path_to_images_or_pdfs --threshold=0.2 --mode=tsr --output_dir=path_to_store_result
 ```
 
 Đầu vào có thể là thư mục chứa hình ảnh hoặc PDF, hoặc một hình ảnh hoặc PDF. Đầu ra sẽ là 1 ảnh với gán nhãn và 1 file markdown với nội dung bảng
